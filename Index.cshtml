@@ -1,0 +1,222 @@
+﻿@model IEnumerable<BEWebApp.Models.Customer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<style type="text/css">
+    table {
+        margin-left: auto;
+        margin-right: auto;
+        width: 900px;
+    }
+
+    #id_cat, #item_name {
+        border: 1px solid lightgreen;
+        border-radius: 10px;
+        background-color: lightgreen;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        color: darkgreen;
+    }
+
+    #btn1, #btn2, #btn3, #btn4 {
+        padding: 4px 15px 4px 15px;
+        background-color: white;
+        border: 1px solid gray;
+        border-radius: 5px;
+    }
+</style>
+<h2 id="id_cat">QUẢN LÝ HÀNG HÓA</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table">
+    <tr id="item_name">
+        <th></th>
+        <th>
+            MÃ KH
+            @*@Html.DisplayNameFor(model => model.NameCus)*@
+        </th>
+        <th>
+            HỌ VÀ TÊN
+            @*@Html.DisplayNameFor(model => model.PhoneCus)*@
+        </th>
+        <th>
+            ĐỊA CHỈ EMAIL
+            @*@Html.DisplayNameFor(model => model.EmailCus)*@
+        </th>
+        <th>
+            HÌNH ẢNH
+        </th>
+        <th>
+            VAI TRÒ?
+        </th>
+        <th></th>
+    </tr>
+    <tr>
+        <td>
+            <input type="checkbox" name='name[]' id='check' />
+        </td>
+        <td>
+            DucNH
+        </td>
+        <td>
+            Nguyễn Hoàng Đức
+        </td>
+        <td>
+            ducnh@gmail.com
+        </td>
+        <td>
+            maxresdefault.jpg
+        </td>
+        <td>
+            Khách hàng
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Edit", null, new { @class = "btn btn-default" })
+            @Html.ActionLink("Xóa", "Delete", null, new { @class = "btn btn-default" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="checkbox" name='name[]' id='check' />
+        </td>
+        <td>
+            HoaPT
+        </td>
+        <td>
+            PHẠM THỊ HÒA
+        </td>
+        <td>
+            hoapt@gmail.com
+        </td>
+        <td>
+            resus.jpg
+        </td>
+        <td>
+            Nhân viên
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Edit", null, new { @class = "btn btn-default" })
+            @Html.ActionLink("Xóa", "Delete", null, new { @class = "btn btn-default" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="checkbox" name='name[]' id='check' />
+        </td>
+        <td>
+            nopt
+        </td>
+        <td>
+            Phạm Thị Nở
+        </td>
+        <td>
+            nopt@gmail.com
+        </td>
+        <td>
+            hongson.jpg
+        </td>
+        <td>
+            Khách hàng
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Edit", null, new { @class = "btn btn-default" })
+            @Html.ActionLink("Xóa", "Delete", null, new { @class = "btn btn-default" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="checkbox" name='name[]' id='check' />
+        </td>
+        <td>
+            teonv
+        </td>
+        <td>
+            Nguyễn Văn Tèo
+        </td>
+        <td>
+            teonv@gmail.com
+        </td>
+        <td>
+            messi.jpg
+        </td>
+        <td>
+            Khách hàng
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Edit", null, new { @class = "btn btn-default" })
+            @Html.ActionLink("Xóa", "Delete", null, new { @class = "btn btn-default" })
+        </td>
+    </tr>
+    <tr>
+        <td colspan="7">
+            <input type="button" id="btn1" value="Chọn tất cả" />
+            <input type="button" id="btn2" value="Bỏ chọn tất cả" />
+            <input type="button" id="btn3" value="Xóa các mục chọn" />
+            <input type="button" id="btn4" value="Nhập thêm" />
+        </td>
+    </tr>
+    <script language="javascript">
+
+            // Chức năng chọn hết
+            document.getElementById("btn1").onclick = function ()
+            {
+                // Lấy danh sách checkbox
+                var checkboxes = document.getElementsByName('name[]');
+
+                // Lặp và thiết lập checked
+                for (var i = 0; i < checkboxes.length; i++){
+                    checkboxes[i].checked = true;
+                }
+            };
+
+            // Chức năng bỏ chọn hết
+            document.getElementById("btn2").onclick = function ()
+            {
+                // Lấy danh sách checkbox
+                var checkboxes = document.getElementsByName('name[]');
+
+                // Lặp và thiết lập Uncheck
+                for (var i = 0; i < checkboxes.length; i++){
+                    checkboxes[i].checked = false;
+                }
+            };
+
+             // Chức năng bỏ chọn
+            document.getElementById("btn3").onclick = function ()
+            {
+                // Lấy danh sách checkbox
+                var checkboxes = document.getElementsByName('name[]');
+
+                // Lặp và thiết lập Uncheck
+                for (var i = 0; i < checkboxes.length; i++){
+                    if (checkboxes[i].checked = true) {
+                        checkboxes[i].checked = false;
+                    }
+                }
+            };
+    </script>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameCus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneCus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailCus)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.IDCus }) |
+                @Html.ActionLink("Details", "Details", new { id = item.IDCus }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.IDCus })
+            </td>
+        </tr>
+    }
+
+</table>

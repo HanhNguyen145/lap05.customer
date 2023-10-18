@@ -1,0 +1,145 @@
+﻿@model BEWebApp.Models.Customer
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<style type="text/css">
+    #id_cat {
+        border: 1px solid lightgreen;
+        border-radius: 10px;
+        background-color: lightgreen;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        color: darkgreen;
+        width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .table_cat {
+        margin-left: auto;
+        margin-right: auto;
+        width: 700px;
+    }
+    input, #bay, #tam{
+        border: 1px solid gray;
+        border-radius: 5px;
+    }
+    #sau, #bay, #tam{
+        padding-top: 5px;
+        padding-left: 5px;
+    }
+    #mot, #hai, #ba, #bon, #nam, #sau, #bay, #tam {
+        width: 270px;
+        height: 35px;
+    }
+
+    .col-md-offset-2 {
+        padding-top: 10px;
+        margin-left: -1px;
+    }
+</style>
+<h2 id="id_cat">QUẢN LÝ HÀNG HÓA</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <table class="table_cat">
+        <tr>
+            <td>
+                <label>MÃ KHÁCH HÀNG</label><br />
+                <input type="number" id="mot" />
+            </td>
+            <td>
+                <label>HỌ VÀ TÊN</label><br />
+                <input type="text" id="hai" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>MẬT KHẨU</label><br />
+                <input type="password" id="ba" />
+            </td>
+            <td>
+                <label>XÁC NHẬN MẬT KHẨU</label><br />
+                <input type="password" id="bon" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>ĐỊA CHỈ EMAIL</label><br />
+                <input type="email" id="nam" />
+            </td>
+            <td>
+                <label>HÌNH ẢNH</label><br />
+                <form ><input type="file" id="sau"/></form>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>KÍCH HOẠT?</label><br />
+                <form id="bay"><input type="radio" /> Chưa kích hoạt <input type="radio" />Kích hoạt</form>
+            </td>
+            <td>
+                <label>VAI TRÒ</label><br />
+                <form id="tam"><input type="radio" /> Khách hàng <input type="radio" />Nhân viên</form>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Thêm mới" class="btn btn-default" />
+                        <input type="reset" value="Nhập lại" class="btn btn-default" />
+                        @Html.ActionLink("Danh sách", "Index", null, new { @class = "btn btn-default" })
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+    @*<h4>Customer</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.NameCus, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NameCus, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NameCus, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PhoneCus, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PhoneCus, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PhoneCus, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EmailCus, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EmailCus, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.EmailCus, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>*@
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
